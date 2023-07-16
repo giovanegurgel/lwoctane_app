@@ -1,0 +1,22 @@
+# Copyright VMware, Inc.
+# SPDX-License-Identifier: APACHE-2.0
+
+version: '3.5'
+
+services:
+#  mariadb:
+#    image: docker.io/bitnami/mariadb:10.6
+#    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+#      - ALLOW_EMPTY_PASSWORD=yes
+#      - MARIADB_USER=bn_myapp
+#      - MARIADB_DATABASE=bitnami_myapp
+  myapp:
+      image: giovanegurgel/lwoctane_app
+      ports:
+        - '8086:8000'
+      volumes:
+        - './my-project:/app'
+        - './docker/php.ini:/opt/bitnami/php/etc/php.ini'
+#    depends_on:
+#      - mariadb
